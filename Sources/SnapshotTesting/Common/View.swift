@@ -64,22 +64,6 @@ public struct ViewImageConfig {
     return .init(safeArea: safeArea, size: size, traits: .iPhoneSeGen1(orientation))
   }
 
-  public static let iPhone7Plus = ViewImageConfig.iPhone7Plus(.portrait)
-
-  public static func iPhone7Plus(_ orientation: Orientation) -> ViewImageConfig {
-    let safeArea: UIEdgeInsets
-    let size: CGSize
-    switch orientation {
-    case .landscape:
-      safeArea = .zero
-      size = .init(width: 847, height: 476)
-    case .portrait:
-      safeArea = .init(top: 20, left: 0, bottom: 0, right: 0)
-      size = .init(width: 476, height: 847)
-    }
-    return .init(safeArea: safeArea, size: size, traits: .iPhone7Plus(orientation))
-  }
-
   public static let iPhone8 = ViewImageConfig.iPhone8(.portrait)
 
   public static func iPhone8(_ orientation: Orientation) -> ViewImageConfig {
@@ -422,34 +406,6 @@ extension UITraitCollection {
           traitsFrom: base + [
             .init(horizontalSizeClass: .compact),
             .init(verticalSizeClass: .regular),
-          ]
-        )
-      }
-  }
-
-  public static func iPhone7Plus(_ orientation: ViewImageConfig.Orientation)
-    -> UITraitCollection {
-      let base: [UITraitCollection] = [
-//        .init(displayGamut: .P3),
-//        .init(displayScale: 2),
-        .init(forceTouchCapability: .available),
-        .init(layoutDirection: .leftToRight),
-        .init(preferredContentSizeCategory: .medium),
-        .init(userInterfaceIdiom: .phone)
-      ]
-      switch orientation {
-      case .landscape:
-        return .init(
-          traitsFrom: base + [
-            .init(horizontalSizeClass: .compact),
-            .init(verticalSizeClass: .compact)
-          ]
-        )
-      case .portrait:
-        return .init(
-          traitsFrom: base + [
-            .init(horizontalSizeClass: .compact),
-            .init(verticalSizeClass: .regular)
           ]
         )
       }
