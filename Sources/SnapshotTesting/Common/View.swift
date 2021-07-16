@@ -48,9 +48,9 @@ public struct ViewImageConfig {
   }
 
   #if os(iOS)
-  public static let iPhoneSe = ViewImageConfig.iPhoneSe(.portrait)
+  public static let iPhoneSeGen1 = ViewImageConfig.iPhoneSeGen1(.portrait)
 
-  public static func iPhoneSe(_ orientation: Orientation) -> ViewImageConfig {
+  public static func iPhoneSeGen1(_ orientation: Orientation) -> ViewImageConfig {
     let safeArea: UIEdgeInsets
     let size: CGSize
     switch orientation {
@@ -61,7 +61,7 @@ public struct ViewImageConfig {
       safeArea = .init(top: 20, left: 0, bottom: 0, right: 0)
       size = .init(width: 320, height: 568)
     }
-    return .init(safeArea: safeArea, size: size, traits: .iPhoneSe(orientation))
+    return .init(safeArea: safeArea, size: size, traits: .iPhoneSeGen1(orientation))
   }
 
   public static let iPhone8 = ViewImageConfig.iPhone8(.portrait)
@@ -347,7 +347,7 @@ public struct ViewImageConfig {
 
 extension UITraitCollection {
   #if os(iOS)
-  public static func iPhoneSe(_ orientation: ViewImageConfig.Orientation)
+  public static func iPhoneSeGen1(_ orientation: ViewImageConfig.Orientation)
     -> UITraitCollection {
       let base: [UITraitCollection] = [
 //        .init(displayGamut: .SRGB),
